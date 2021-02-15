@@ -8,7 +8,13 @@ $(function () {
     var base_line = -650;
 
 
-
+    $(window).on('resize', function(){
+        win_w = $(this).width();
+        if(win_w>1000){
+            $('.navi_list').removeAttr('style');
+            $('.toggle').removeClass('active');
+        }
+    });
 
 
     save_offset_top();
