@@ -1,20 +1,14 @@
 $(function () {
 
 
+    const base_line = -650;
+    const win_w = $(window).width();
+    let last = 0;
+    let sec_pos = [];
+    
 
-    var win_w = $(window).width();
-    var last = 0;
-    var sec_pos = [];
-    var base_line = -650;
 
 
-    $(window).on('resize', function(){
-        win_w = $(this).width();
-        if(win_w>1000){
-            $('.navi_list').removeAttr('style');
-            $('.toggle').removeClass('active');
-        }
-    });
 
 
     save_offset_top();
@@ -23,7 +17,7 @@ $(function () {
         sec_pos = [];
 
         $('section').each(function () {
-            var this_offset = $(this).offset().top;
+            const this_offset = $(this).offset().top;
             sec_pos.push(this_offset);
         });
 
@@ -33,7 +27,7 @@ $(function () {
 
     //------------ scroll 이벤트
     $(window).on('scroll', function () {
-        var scroll = $(this).scrollTop();
+        let scroll = $(this).scrollTop();
 
         $('section').each(function (index) {
             if (scroll >= sec_pos[index] + base_line && scroll < sec_pos[index + 1]) {
